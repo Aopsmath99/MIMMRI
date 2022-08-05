@@ -31,7 +31,7 @@ The model that found the most success can be trained and run below:
 
 ## Train given model and evaluate
 ```
-torchrun simmim_main.py --cfg=swin100epwin6 --amp-opt-level='O0' --local_rank=1
+torchrun simmim_main.py --cfg=swin100epwin6.yaml --amp-opt-level='O0' --local_rank=1
 ```
 Config.py contain several other valuable configs, and other encoders can be found in the models folder along with the main SimMIM folder. Each of these encoders were modified by me for the purpose of reconstruction (and formatting for the SimMIM baseline model), but improvements are always needed and greatly welcome. This project was conducted over a brief 6-week time period, meaning there is much room for improvement. This repo will likely continue to be updated thorughout the next year with improvements.
 
