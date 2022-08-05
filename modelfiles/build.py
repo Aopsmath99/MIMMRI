@@ -4,6 +4,7 @@
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Ze Liu
 # Modified by Zhenda Xie
+# Further modified by Kyler Larsen
 # --------------------------------------------------------
 
 from .swin_transformer import build_swin
