@@ -2,6 +2,7 @@
 # MISTNet
 # School of BME, SYSU
 # Written by panjy (panjy59@mail2.sysu.edu.cn) 
+# Modified by Kyler Larsen
 # --------------------------------------------------------
 
 import math
