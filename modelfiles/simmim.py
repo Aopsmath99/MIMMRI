@@ -3,7 +3,7 @@
 # Copyright (c) 2021 Microsoft
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Zhenda Xie
-# Further modified by Kyler Larsen
+# Modified by Kyler Larsen
 # --------------------------------------------------------
 
 from functools import partial
@@ -46,10 +46,10 @@ class SwinTransformerForSimMIM(SwinTransformer):
         B, L, _ = x.shape
 
         mask_tokens = self.mask_token.expand(B, L, -1)
-        #w = mask.flatten(1).unsqueeze(-1).type_as(mask_tokens)
+
         w = mask.squeeze(0).unsqueeze(-1).type_as(mask_tokens)
         x = x * (1 - w) + mask_tokens * w
-        #print(x.shape, 'AFTER CHANGE')
+
         if self.ape:
             x = x + self.absolute_pos_embed
         x = self.pos_drop(x)
@@ -62,7 +62,7 @@ class SwinTransformerForSimMIM(SwinTransformer):
         B, C, L = x.shape
         H = W = int(L ** 0.5)
         x = x.reshape(B, C, H, W)
-        #print(x.shape, "HERE NOW")
+
         return x
 
 
@@ -97,7 +97,6 @@ class SwinRecTransformerForSimMIM(SwinRecNet):
         B, C, L = x.shape
         H = W = int(L ** 0.5)
         x = x.reshape(B, C, H, W)
-        print("HERE NOW", x.shape)
         return x
 
     @torch.jit.ignore
@@ -165,31 +164,19 @@ class SimMIM(nn.Module):
         firsts = True
         firstl = True
         #z = self.encoder(x, mask, target)
-        z = self.encoder(x, mask, target)
-        #print(z)
-        #transform = Tr.ToTensor()
-        #z = transform(z)
+        z = self.encoder(x, mask)
         x_rec = self.decoder(z)
         x = x.squeeze()
         x_rec = x_rec.squeeze()
         mask = mask.repeat_interleave(self.patch_size, 1).repeat_interleave(self.patch_size, 2).unsqueeze(1).contiguous()
-        
-        transform = Tr.ToPILImage()
-        '''
-        a = transform(x_rec)
-        b = transform(x)
-        #x_recg = ImageOps.grayscale(x_rec)
-        b.show()
-        a.show()
-        '''
         loss_recon = F.l1_loss(x.float(), x_rec.float(), reduction='none')
 
-        i = random.randint(0, 10000000)
+        #i = random.randint(0, 10000000)
         transform = Tr.ToPILImage()
         x_rec = transform(x_rec)
         x = transform(x)
         loss = (loss_recon.cuda() * mask).sum() / (mask.sum() + 1e-5) / self.in_chans
-        
+        #Saving quality images for the purpose of image gathering
         '''
         if loss.item() < 0.05:
             if firstl: 
@@ -205,14 +192,14 @@ class SimMIM(nn.Module):
         a = img_as_float(a)
         b = img_as_float(b)
         (score, diff) = ssim(a, b, full=True)
-        if score > 0.985:
+        if score > 0.995:
             if firsts:
-                x_rec.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/output_images_norm/goodscorerec5_kspace' + str(i) + '.png')
-                x.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/output_images_norm/originalscore5_kspace' + str(i) + '.png')
+                x_rec.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/vit_images/goodscorerec5_kspace' + str(i) + '.png')
+                x.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/vit_images/originalscore5_kspace' + str(i) + '.png')
                 firsts = False
             elif i < 500000:
-                x_rec.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/output_images_norm/goodscorerec5_kspace' + str(i) + '.png')
-                x.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/output_images_norm/originalscore5_kspace' + str(i) + '.png')
+                x_rec.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/vit_images/goodscorerec5_kspace' + str(i) + '.png')
+                x.save('/rfanfs/pnl-zorro/home/kyler/SimMIM/vit_images/originalscore5_kspace' + str(i) + '.png')
             print("THIS IS A GOOD ONE, SCORE: ", score)
         return loss, score
 
