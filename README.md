@@ -1,5 +1,7 @@
 # MIMMRI
 Welcome to Masked Image Modeling MRI Reconstruction Imaging (MIMMRI)! This respository contain code that evaluates and modifies basline code for masked image modeling. Specifically, this code was used for the purpose of evaluating masked image modeling for MRI reconstruction. To get started with this repository, follow the below instructions.
+[Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/MRIReconPaper-3.pdf)
+
 
 ## Introduction
 This study follows the use of Masked Image Modeling (MIM). It primarily uses code from the baseline SimMIM model (https://github.com/microsoft/SimMIM), which has been modified for reconstruction purposes. The model uses two primary encoders: The Swin Transformer and the Vision Transformer. Some changes were made to the overall algorithm of these models, consisting largely of removing extraneous methods and adding additional masking functions to simulate undersampling. The primary changes made were to hyperparameters and implementation, as well as the addition of new encoders like the SwinRecNet. It is important to note that, so far, this model only produces a reconstructed k-space, and the model is currently being worked on to produce the actual MRI image (still working out specifics). The basic Inverse Fourier transform is not applicable in this case since the image loses its complex dimension when saves as a PNG file.
@@ -43,4 +45,4 @@ In current state run of the above command, the model achieved structural similar
 ### Acknowledgements:
 I would like to thank Arghya Pal, PhD and Kevin Cho, PhD from the Psychiatry Neuroimaging lab at the Harvard Medical School for helping me setup up this repository and project, and for answering the multitude of questions I asked while I worked. 
 
-[Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/MRIReconPaper-3.pdf)
+
