@@ -43,5 +43,4 @@ In current state run of the above command, the model achieved structural similar
 ### Acknowledgements:
 I would like to thank Arghya Pal, PhD and Kevin Cho, PhD from the Psychiatry Neuroimaging lab at the Harvard Medical School for helping me setup up this repository and project, and for answering the multitude of questions I asked while I worked. 
 
-### Paper
-https://drive.google.com/file/d/18dg1bvBqprer-aKfyaWxcALBMaHQylLf/view?usp=sharing
+[Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/MRIReconPaper-3.pdf)
