@@ -1,5 +1,6 @@
 # MIMMRI
-Welcome to Masked Image Modeling MRI Reconstruction Imaging (MIMMRI)! This respository contain code that evaluates and modifies basline code for masked image modeling. Specifically, this code was used for the purpose of evaluating masked image modeling for MRI reconstruction. To get started with this repository, follow the below instructions.\\
+Welcome to Masked Image Modeling MRI Reconstruction Imaging (MIMMRI)! This respository contain code that evaluates and modifies basline code for masked image modeling. Specifically, this code was used for the purpose of evaluating masked image modeling for MRI reconstruction. To get started with this repository, follow the below instructions.
+
 [Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/MRIReconPaper-3.pdf)
 
 
