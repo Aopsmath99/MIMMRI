@@ -1,7 +1,7 @@
 # MIMMRI
 Welcome to Masked Image Modeling MRI Reconstruction Imaging (MIMMRI)! This respository contain code that evaluates and modifies basline code for masked image modeling. Specifically, this code was used for the purpose of evaluating masked image modeling for MRI reconstruction. To get started with this repository, follow the below instructions.
 
-[Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/MRIReconPaper.pdf)
+[Research Paper](https://github.com/Aopsmath99/MIMMRI/blob/main/test_files/MRIReconPaper.pdf)
 
 
 ## Introduction
@@ -41,7 +41,8 @@ Config.py contain several other valuable configs, and other encoders can be foun
 This repository contains dozens of useful implementations that are not all used in the above code. Feel free to use any implementation found in this repository for any use. 
 
 ### Results
-In current state run of the above command, the model achieved structural similarity values of over 99.5% and loss values of less than 0.01 during validation, with training loss values dipping below 0.005. The full dataset for multiple models will be made available shortly.
+In current state run of the above command, the model achieved structural similarity values of over 99.5% and loss values of less than 0.01 during validation, with training loss values dipping below 0.005. 
+[Full Dataset](https://github.com/Aopsmath99/MIMMRI/blob/main/test_files/SimMIM%20DATA.xlsx)
 
 ### Acknowledgements:
 I would like to thank Arghya Pal, PhD and Kevin Cho, PhD from the Psychiatry Neuroimaging lab at the Harvard Medical School for helping me setup up this repository and project, and for answering the multitude of questions I asked while I worked. 
