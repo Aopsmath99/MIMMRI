@@ -47,5 +47,3 @@ In current state run of the above command, the model achieved structural similar
 ### Acknowledgements:
 I would like to thank Arghya Pal, PhD and Kevin Cho, PhD from the Psychiatry Neuroimaging lab at the Harvard Medical School for helping me setup up this repository and project, and for answering the multitude of questions I asked while I worked. 
 
-Arxiv PrePrint: https://arxiv.org/abs/2208.11472
-
